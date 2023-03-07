@@ -23,13 +23,17 @@
           <form action="{{ url_for('process_login') }}" method="POST">
             {{ form.hidden_tag() }}
             <div class="mb-3">
-              {{ form.username.label }}<br>
+              {{ form.username.label }}
               {{ form.username() }}
             </div>
-            <p>
-              {{ form.password.label }}<br>
+            <div class="mb-3">
+              {{ form.password.label }}
               {{ form.password() }}
-            </p>
+            </div>            
+            <div class="mb-3 form-check">
+              {{ form.remember_me() }}
+              {{ form.remember_me.label(class_='form-check-label') }}
+            </div>
             {{ form.submit() }}
           </form>
         </div>
