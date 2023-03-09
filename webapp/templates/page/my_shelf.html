@@ -1,0 +1,27 @@
+{% extends 'baze.html' %}
+
+{% block content %}
+    <div class="bookshelf-main col-7">
+        <h1>{{ page_title }}</h1>
+        <form action="{{ url_for('page.work_book') }}" name="my_files" enctype=multipart/form-data method="POST">
+            <input type="file" name="file">
+            <div class="file-input">
+                <label for="exampleFormControlInput1" class="form-label"></label>
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Автор">
+            </div>
+            <div class="file-input">
+                <label for="exampleFormControlInput1" class="form-label"></label>
+                <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="Опишите книгу (необязательно)">
+            </div>
+            <button type="submit" class="btn btn-secondary" name="upload">Подтвердить</button>
+            <!-- <p>Мои книги:</p>
+            <select class="form-select" multiple aria-label="multiple select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <button type="button" class="btn btn-secondary" name="Просмотр">Просмотр</button>
+            <button type="button" class="btn btn-secondary" name="Удалить">Удалить</button> -->
+        </form>
+    </div>
+{% endblock %}

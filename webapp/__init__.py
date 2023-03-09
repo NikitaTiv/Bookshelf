@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_login import LoginManager
+from flask_migrate import Migrate
 
 from settings_box import config
 from webapp.admin.views import blueprint as admin_blueprint
@@ -12,6 +13,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     with app.app_context():
         db.create_all()

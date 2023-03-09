@@ -16,7 +16,29 @@ body {
     font-size: 18px;
 }
 
-.login-form {
+.bookshelf-main {
+    margin-top: 20px;
+    height: 750px;
+    background-color: white;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.bookshelf-main button {
+    margin: 20px 0px;
+    width: 150px;
+}
+
+.file-input {
+    width: 500px;
+}
+
+.form-select {
+    width: 500px;
+    height: 200px;
+}
+
+.login {
     background-color: white;
     color: black;
     margin-top: 20px;
@@ -37,6 +59,17 @@ body {
     background-color: rgb(206, 141, 56) !important;
 }
 
+.register {
+    background-color: white;
+    color: black;
+    margin-top: 20px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    width: 400px;
+}
+
 .site-nav-item:hover {
     text-decoration: underline;
     text-decoration-color: #858585;
@@ -44,5 +77,3 @@ body {
     text-decoration-thickness: 10px;
     text-underline-position: under;
 }
-
-

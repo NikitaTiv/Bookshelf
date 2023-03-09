@@ -7,6 +7,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), index=True, unique=True)
     password = db.Column(db.String)
     role = db.Column(db.String(10), index=True)
+    is_active = db.Column(db.Boolean, index=True)
+    email = db.Column(db.String, index=True, unique=True)
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
