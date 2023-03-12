@@ -26,7 +26,7 @@ SQLALCHEMY_DATABASE_URI = 'Путь к вашей базе данных'
 2. Сразу после этого бот попросит поприветствовать его путем нажатия на кнопку `Привет!`
 3. Далее бот показывает главное меню:
 
-![Главное меню](https://raw.githubusercontent.com/Vladislav-opto/Shopping_Bot_Final/main/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA3.PNG)
+![Главное меню](https://raw.githubusercontent.com/NikitaTiv/Bookshelf/webapp/static/img/Pict_for_READ_ME/Снимок экрана от 2023-03-12 13-42-45.png)
 
 4. Пользователь может перейти в меню работы с чеками и добавить чек, следуя инструкциям от бота.
 Внимание - загружать фотографию чека в чат надо со сжатием.
