@@ -22,13 +22,14 @@ def process_login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter(User.username==form.username.data).first()
-        if user and user.check_password(form.password.data) and user.is_active == True:
-            login_user(user, remember=form.remember_me.data)
-            flash('Вы успешно вошли на сайт.')
-            return redirect(url_for('page.main_page'))
-        elif user.is_active == False:
-            flash('Доступ на сайт для вас ограничен.')
-            return redirect(url_for('page.main_page'))
+        if user:
+            if user.check_password(form.password.data) and user.is_active:
+                login_user(user, remember=form.remember_me.data)
+                flash('Вы успешно вошли на сайт.')
+                return redirect(url_for('page.main_page'))
+            elif not user.is_active:
+                flash('Доступ на сайт для вас ограничен.')
+                return redirect(url_for('page.main_page'))
     flash('Неправильное имя или пароль.')
     return redirect(url_for('user.login'))
 
@@ -53,8 +54,9 @@ def registration():
 def process_registration():
     form = RegistrationForm()
     if form.validate_on_submit():
-        new_user = User(username=form.username.data,
-                         email=form.email.data, role='user', is_active=True)
+        new_user = User(
+            username=form.username.data, email=form.email.data, role='user', is_active=True,
+        )
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
@@ -65,6 +67,6 @@ def process_registration():
             for error in errors:
                 flash('Ошибка в поле "{}": {}'.format(
                     getattr(form, field).label.text,
-                    error
+                    error,
                 ))
         return redirect(url_for('user.registration'))

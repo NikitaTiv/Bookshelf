@@ -18,7 +18,7 @@ body {
 
 .bookshelf-main {
     margin-top: 20px;
-    height: 750px;
+    height: 650px;
     background-color: white;
     padding-left: 20px;
     border-radius: 20px;
@@ -27,6 +27,32 @@ body {
 .bookshelf-main button {
     margin: 20px 0px;
     width: 150px;
+}
+
+.bookshelf-main p {
+    color: grey;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.bookshelf-search {
+    margin-top: 20px;
+    height: 790px;
+    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    border-radius: 20px;
+    width: 800px;
+    text-align: center;
+}
+
+.carousel-box {
+    width: 750px;
+    margin-bottom: 20px;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 80px;
 }
 
 .file-input {
@@ -68,6 +94,10 @@ body {
     padding: 20px;
     border: 1px solid black;
     width: 400px;
+}
+
+.row > .search-page-buttons-1 {
+    margin: 15px 30px 0px auto;
 }
 
 .site-nav-item:hover {

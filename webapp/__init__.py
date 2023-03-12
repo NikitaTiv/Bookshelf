@@ -9,11 +9,12 @@ from webapp.page.views import blueprint as pages_blueprint
 from webapp.user.models import User
 from webapp.user.views import blueprint as user_blueprint
 
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
     db.init_app(app)
-    migrate = Migrate(app, db)
+    migrate = Migrate(app, db)  # noqa: F841
 
     with app.app_context():
         db.create_all()
