@@ -26,7 +26,7 @@ SQLALCHEMY_DATABASE_URI = 'Путь к вашей базе данных'
 2. Сразу после этого бот попросит поприветствовать его путем нажатия на кнопку `Привет!`
 3. Далее бот показывает главное меню:
 
-![Окно регистрации](https://raw.githubusercontent.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/reg.png)
+![Окно регистрации](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/reg.png)
 
 4. Пользователь может перейти в меню работы с чеками и добавить чек, следуя инструкциям от бота.
 Внимание - загружать фотографию чека в чат надо со сжатием.
