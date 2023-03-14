@@ -71,7 +71,7 @@ def download_book():
         Book.user==current_user.username, Book.name==book_name, Book.author==author,
     ).first()
     filepath = os.path.join(
-        current_app.config[current_app.config['UPLOAD_FOLDER']], current_user.username, book.filename,
+        current_app.config['UPLOAD_FOLDER'], current_user.username, book.filename,
     )
     return send_file(filepath, as_attachment=True, download_name=f'{book_name}.txt')
 
@@ -118,5 +118,5 @@ def download_global_book():
     form = BookForm()
     book_name = form.books.data[0]
     book = Book.query.filter(Book.name==book_name).first()
-    filepath = os.path.join(current_app.config[current_app.config['UPLOAD_FOLDER']], book.user, book.filename)
+    filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], book.user, book.filename)
     return send_file(filepath, as_attachment=True, download_name=f'{book_name}.txt')
