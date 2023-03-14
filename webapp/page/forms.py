@@ -3,6 +3,4 @@ from wtforms import SelectMultipleField
 
 
 class BookForm(FlaskForm):
-    """Форма для выбора книг."""
-
     books = SelectMultipleField('books', choices=[])

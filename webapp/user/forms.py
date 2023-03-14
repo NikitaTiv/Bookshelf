@@ -6,8 +6,6 @@ from webapp.user.models import User
 
 
 class LoginForm(FlaskForm):
-    """Форма для авторизации."""
-
     username = StringField('Имя пользователя', validators=[DataRequired()], render_kw={'class': 'form-control'})
     password = PasswordField('Пароль', validators=[DataRequired()], render_kw={'class': 'form-control'})
     remember_me = BooleanField('Запомнить меня', default=True, render_kw={'class': 'form-check-input'})
@@ -15,8 +13,6 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    """Форма для регистрации."""
-
     username = StringField('Имя пользователя', validators=[DataRequired()], render_kw={'class': 'form-control'})
     email = StringField('Электронная почта', validators=[DataRequired(), Email()], render_kw={'class': 'form-control'})
     password = PasswordField('Пароль', validators=[DataRequired()], render_kw={'class': 'form-control'})

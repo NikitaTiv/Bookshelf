@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="bookshelf-main col-6">
-        <h1><b>{{ page_title }}</b></h1>
-        <form action="{{ url_for('page.work_book') }}" name="my_files" enctype=multipart/form-data method="POST">
+        <h1><b>Моя полка</b></h1>
+        <form name="my_files" enctype=multipart/form-data method="POST">
             <input type="file" name="file">
             <div class="file-input">
                 <label for="exampleFormControlInput1" class="form-label"></label>
@@ -18,14 +18,14 @@
                 <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="Опиcание (необязательно*)">
             </div>
             <p>* В рекомендации другим пользователям попадут только книги, имеющие описание.</p>
-            <button type="submit" class="btn btn-secondary" name="upload">Подтвердить</button>
+            <button type="submit" formaction="{{ url_for('page.upload_book') }}" class="btn btn-secondary" name="upload">Подтвердить</button>
             {{ form.hidden_tag() }}
             <div class="form-group">
                 <label>Мои книги:</label>
                 {{ form.books(class='form-control') }}
             </div>
-            <button type="submit" class="btn btn-secondary" name="download">Скачать</button>
-            <button type="submit" class="btn btn-secondary" name="delete">Удалить</button>
+            <button type="submit" formaction="{{ url_for('page.download_book') }}" class="btn btn-secondary" name="download">Скачать</button>
+            <button type="submit" formaction="{{ url_for('page.delete_book') }}"class="btn btn-secondary" name="delete">Удалить</button>
         </form>
     </div>
 {% endblock %}

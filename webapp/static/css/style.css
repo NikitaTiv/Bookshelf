@@ -55,6 +55,11 @@ body {
     bottom: 80px;
 }
 
+.text-block-2 {
+    position: absolute;
+    bottom: 150px;
+}
+
 .file-input {
     width: 500px;
 }

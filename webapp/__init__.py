@@ -2,7 +2,7 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
-from settings_box import config
+from settings_box.config import get_config
 from webapp.admin.views import blueprint as admin_blueprint
 from webapp.db import db
 from webapp.page.views import blueprint as pages_blueprint
@@ -12,12 +12,9 @@ from webapp.user.views import blueprint as user_blueprint
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config)
+    app.config.update(get_config())
     db.init_app(app)
     migrate = Migrate(app, db)  # noqa: F841
-
-    with app.app_context():
-        db.create_all()
 
     login_manager = LoginManager()
     login_manager.init_app(app)
