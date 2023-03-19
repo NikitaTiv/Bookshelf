@@ -1,5 +1,6 @@
-from webapp.utils.handler_files import allowed_file
 import pytest
+
+from webapp.utils.handler_files import allowed_file
 
 
 @pytest.mark.parametrize(
@@ -10,7 +11,7 @@ import pytest
         ('.', 'jpeg', False),
     ],
     ids=[
-        'file_with_correct_file_extension',
+        'success_case',
         'file_with_wrong_separator',
         'file_with_wrong_extension',
     ], 

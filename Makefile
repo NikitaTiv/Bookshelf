@@ -4,8 +4,8 @@ style:
 types:
 	mypy webapp
 
-tests:
-	pytest .
+test:
+	python -m pytest
 	
 check:
-	make style types tests
+	make style types test

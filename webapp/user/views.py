@@ -1,7 +1,7 @@
 from flask import Blueprint, flash, redirect, render_template, url_for
 from flask_login import current_user, login_user, logout_user
 
-from webapp import db
+from webapp.user.db_fuctions import create_user
 from webapp.user.forms import LoginForm, RegistrationForm
 from webapp.user.models import User
 
@@ -54,12 +54,10 @@ def registration():
 def process_registration():
     form = RegistrationForm()
     if form.validate_on_submit():
-        new_user = User(
-            username=form.username.data, email=form.email.data, role='user', is_active=True,
+        user = User(
+            username=form.username.data, email=form.email.data, password=form.password.data,
         )
-        new_user.set_password(form.password.data)
-        db.session.add(new_user)
-        db.session.commit()
+        create_user(user)
         flash('Вы успешно зарегистрировались!')
         return redirect(url_for('user.login'))
     else:

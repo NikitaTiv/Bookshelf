@@ -1,10 +1,10 @@
 from flask_login import UserMixin
 from sqlalchemy import ForeignKey
+from webapp.db import db, Model
 from werkzeug.security import generate_password_hash, check_password_hash
-from webapp.db import db
 
 
-class User(db.Model, UserMixin):
+class User(Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), index=True, unique=True)
     password = db.Column(db.String)
@@ -29,7 +29,7 @@ class User(db.Model, UserMixin):
         return f'<User {self.username}: {self.role}>'
 
 
-class Book(db.Model):
+class Book(Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.String, ForeignKey(User.username), index=True, nullable=False)
     name = db.Column(db.String, index=True, nullable=False)

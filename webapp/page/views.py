@@ -5,10 +5,11 @@ from werkzeug.utils import secure_filename
 
 from webapp.dataclasses import UserBook
 from webapp.page.forms import BookForm
-from webapp.user.db_fuctions import save_user_book, delete_user_book
+from webapp.user.db_fuctions import (save_user_book_to_db, delete_user_book_from_db,
+                                     find_book_in_db)
 from webapp.user.models import Book
 from webapp.utils.handler_strings import split_row_book_delete
-from webapp.utils.handler_files import allowed_file
+from webapp.utils.handler_files import allowed_file, delete_bookfile
 
 blueprint = Blueprint('page', __name__)
 
@@ -45,7 +46,10 @@ def upload_book():
         filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], current_user.username)
         os.makedirs(filepath, exist_ok=True)
         file.save(os.path.join(filepath, filename))
-        save_user_book(current_user.username, name, author, description, filename)
+        book = Book(
+            user=current_user.username, name=name, author=author, filename=filename, description=description,
+        )
+        save_user_book_to_db(book)
         flash('Файл загружен.')
         return redirect(url_for('page.bookshelf'))
     else:
@@ -57,8 +61,14 @@ def upload_book():
 @login_required
 def delete_book():
     form = BookForm()
-    book_name, author = split_row_book_delete(form.books.data[0])
-    delete_user_book(book_name, author)
+    try:
+        book_name, author = split_row_book_delete(form.books.data[0])
+    except IndexError:
+        flash('У вас нет загруженных книг')
+        return redirect(url_for('page.bookshelf'))
+    book = find_book_in_db(current_user.username, book_name, author)
+    delete_user_book_from_db(book)
+    delete_bookfile(book)
     return redirect(url_for('page.bookshelf'))
 
 
@@ -66,7 +76,11 @@ def delete_book():
 @login_required
 def download_book():
     form = BookForm()
-    book_name, author = split_row_book_delete(form.books.data[0])
+    try:
+        book_name, author = split_row_book_delete(form.books.data[0])
+    except IndexError:
+        flash('У вас нет загруженных книг')
+        return redirect(url_for('page.bookshelf'))
     book = Book.query.filter(
         Book.user==current_user.username, Book.name==book_name, Book.author==author,
     ).first()
@@ -116,7 +130,11 @@ def process_search():
 @login_required
 def download_global_book():
     form = BookForm()
-    book_name = form.books.data[0]
+    try:
+        book_name = form.books.data[0]
+    except IndexError:
+        flash('Книга не найдена.')
+        return redirect(url_for('page.global_search'))
     book = Book.query.filter(Book.name==book_name).first()
     filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], book.user, book.filename)
     return send_file(filepath, as_attachment=True, download_name=f'{book_name}.txt')
