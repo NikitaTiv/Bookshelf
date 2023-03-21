@@ -14,7 +14,7 @@ def create_app():
     app = Flask(__name__)
     app.config.update(get_config())
     db.init_app(app)
-    migrate = Migrate(app, db)  # noqa: F841
+    migrate = Migrate(app, db)
 
     login_manager = LoginManager()
     login_manager.init_app(app)

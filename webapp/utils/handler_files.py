@@ -3,7 +3,7 @@ import os
 from typing import Type
 
 
-def allowed_file(filename: str) -> bool:
+def checks_available_format(filename: str) -> bool:
     """Функция проверки расширения файла."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config[
         'ALLOWED_EXTENSIONS'

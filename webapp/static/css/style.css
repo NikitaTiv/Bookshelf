@@ -7,6 +7,40 @@
     text-align: center;
 }
 
+.hero {
+    margin: 100px 0;
+    background-color: grey;
+    text-align: center;
+    height: 200px;
+    width: 600px;
+    border-radius: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-magazine {
+    position: relative;
+    left: 100px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.hero > h1 {
+    margin-left: 120px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-size: 36px;
+}
+
+.hero > .logo {
+    position:absolute;
+    left: 750px;
+}
+
 body {
     background: url('../img/body_pict.jpeg') no-repeat;
     background-size: cover;
@@ -50,14 +84,49 @@ body {
     margin-bottom: 20px;
 }
 
-.text-block {
-    position: absolute;
-    bottom: 80px;
+.item {
+    height: 370px;
+    width: 370px;
+    background-color: rgb(255, 206, 132);
+    border-radius: 20px;
 }
 
-.text-block-2 {
-    position: absolute;
-    bottom: 150px;
+.item > .text1 {
+    position: relative;
+    right: 60px;
+    bottom: 25px;
+    background-color: white;
+    border-radius: 20px;
+    height: 120px;   
+    width: 350px;
+    font-size: 30px;
+    padding-left: 15px;
+    border: 1px solid black;
+}
+
+.item > .text2 {
+    position: relative;
+    left: 70px;
+    bottom: 25px;
+    background-color: white;
+    border-radius: 20px;
+    height: 120px;   
+    width: 350px;
+    font-size: 30px;
+    padding-left: 15px;
+    border: 1px solid black;
+}
+
+.img1_1 {
+    position: relative;
+    left: 80px;
+    bottom: 153px;
+}
+
+.img1_2 {
+    position: relative;
+    right: 50px;
+    bottom: 70px;
 }
 
 .file-input {
@@ -67,6 +136,10 @@ body {
 .form-select {
     width: 500px;
     height: 200px;
+}
+
+li {
+    list-style-type: none
 }
 
 .login {
@@ -111,4 +184,20 @@ body {
     text-underline-offset: 27px;
     text-decoration-thickness: 10px;
     text-underline-position: under;
+}
+
+.second {
+    position: relative;
+    left: 650px;
+    bottom: 370px;
+}
+
+.text-block {
+    position: absolute;
+    bottom: 80px;
+}
+
+.text-block-2 {
+    position: absolute;
+    bottom: 150px;
 }
