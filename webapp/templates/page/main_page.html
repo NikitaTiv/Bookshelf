@@ -1,5 +1,28 @@
 {% extends 'baze.html' %}
 
 {% block content %}
-    <h1>{{ page_title }}</h1>
+    <main class="main-content">
+      <section class="hero">
+        <img class="logo" src="../static/img/logo.png" alt="logo" width="90" height="70">
+        <h1>Книжная полка</h1>
+        <p>
+          <q>
+            <i>Уникальный проект для любителей книг,<br>где каждый найдет себе что-то себе по вкусу.</i>
+          </q>
+        </p>
+        <p class="hero-magazine">THE NEW YORK TIMES.</p>
+      </section>
+      <section class="about-project">
+        <ul class="discription-items">
+          <li class="item">
+            <h2 class='text1'>Берите книги с<br>полок других<br>пользователей</h2>
+            <img class="img1_1" src="../static/img/man_book.png" width="300px" alt="Человек с книгой">
+          </li>
+          <li class="item second">
+            <h2 class='text2'>Создайте уникальную полку из любимых произведений</h2>
+            <img class="img1_2" src="../static/img/shelf.png" width="500px" alt="Человек с книгой">
+          </li>
+        </ul>
+      </section>
+    </main>
 {% endblock %}
