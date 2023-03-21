@@ -35,7 +35,7 @@ SQLALCHEMY_DATABASE_URI = 'Путь к вашей базе данных'
 
 3. В разделе `"Главное меню"` вы можете ознакомиться с информацией о нашем проекте, прочитать отзывы и узнать о возможностях, которые вам доступны.
 
-![Главное меню](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/main_menu.png)
+![Главное меню](https://github.com/NikitaTiv/Bookshelf/blob/main/webapp/static/img/Pict_for_READ_ME/main_menu.png)
 
 4. Перейдите на вкладку `"Моя полка"` и начните создавать свою уникальную коллекцию книг! Книги загружаются только в `txt`-формате.
 
