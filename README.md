@@ -25,11 +25,11 @@ SQLALCHEMY_DATABASE_URI = 'Путь к вашей базе данных'
 
 1. Для доступа к возможностям сайта необходимо зарегистрироваться.
 
-![Окно регистрации](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/reg.png)
+![Окно регистрации](https://github.com/NikitaTiv/Bookshelf/blob/main/webapp/static/img/Pict_for_READ_ME/reg.png)
 
 2. Далее нужно перейти в окно `"Авторизации"` и ввести свои данные.
 
-![Окно авторизации](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/authorization.png)
+![Окно авторизации](https://github.com/NikitaTiv/Bookshelf/blob/main/webapp/static/img/Pict_for_READ_ME/authorization.png)
 
 `Теперь вы имеете доступ ко всем позможностям сайта!`
 
@@ -39,8 +39,8 @@ SQLALCHEMY_DATABASE_URI = 'Путь к вашей базе данных'
 
 4. Перейдите на вкладку `"Моя полка"` и начните создавать свою уникальную коллекцию книг! Книги загружаются только в `txt`-формате.
 
-![Моя полка](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/myshelf.png)
+![Моя полка](https://github.com/NikitaTiv/Bookshelf/blob/main/webapp/static/img/Pict_for_READ_ME/myshelf.png)
 
 5. Или же перейдите во вкладку `"Поиск книги"` для поиска вам откроются все книги, которые есть на сайте. А если вы не знаете что хотите раздел `"Рекомендации"` поможет вам с выбором.
 
-![Поиск книг](https://github.com/NikitaTiv/Bookshelf/blob/origin/bookshelf/webapp/static/img/Pict_for_READ_ME/search.png)
+![Поиск книг](https://github.com/NikitaTiv/Bookshelf/blob/main/webapp/static/img/Pict_for_READ_ME/search.png)
