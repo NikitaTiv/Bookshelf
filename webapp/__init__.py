@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_login import LoginManager
+from flask_login import LoginManager, FlaskLoginClient
 from flask_migrate import Migrate
 
 from settings_box.config import get_config
@@ -23,6 +23,7 @@ def create_app():
     app.register_blueprint(admin_blueprint)
     app.register_blueprint(pages_blueprint)
     app.register_blueprint(user_blueprint)
+    app.test_client_class = FlaskLoginClient
 
     @login_manager.user_loader
     def load_user(user_id):

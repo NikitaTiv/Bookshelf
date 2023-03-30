@@ -37,3 +37,14 @@ def clear_tables(app):
     yield
     delete_all_records_from(Book)
     delete_all_records_from(User)
+
+
+@pytest.fixture()
+def client(app):
+    return app.test_client()
+
+
+@pytest.fixture()
+def authenticated_client(app, user):
+    with app.test_client(user=user) as client:
+        return client
