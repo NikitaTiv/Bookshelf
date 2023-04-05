@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.8
+      - name: Install requirements
+        run: pip install -r requirements-dev.txt
+      - name: Run flake8
+        run: flake8 .
+      - name: Run mypy
+        run: mypy .
+      - name: Run tests
+        run: python -m pytest
